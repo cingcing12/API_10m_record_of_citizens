@@ -7,13 +7,14 @@ const SECRET_KEY = 'homework_super_secret_key';
 const app = express();
 app.use(cors());
 app.use(express.json());
+require('dotenv').config();
 
 // Connect to your Database VM
 const dbConfig = {
-    host: '192.168.80.130',
-    user: 'server_user',
-    password: 'StrongPassword123!',
-    database: 'population_db'
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.pass,
+    database: process.env.database
 };
 
 // New Endpoint: Get distinct locations for dropdowns
